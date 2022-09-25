@@ -1,0 +1,16 @@
+mu<-14.6
+data<-c(12.3,11.4,14.2,15.3,14.8,13.8,11.1,15.1,15.8,13.2)
+n<-length(data)
+x.bar<-mean(data)
+sd.est<-sd(data)
+tcal<-(x.bar-mu)/(sd.est/sqrt(n)) #-1.719362
+
+ttable<-qt(0.01,n-1) #-2.82
+pvalue<-pt(tcal,df=n-1) #0.059 where alpha = 0.01
+#tcal>ttable,H0 is accepted
+
+#t.test use kora hoi sob value thik aca kina
+t.test(data,mu=14.6,cont.level=0.99,alternative='less')
+boxplot(data,ylab='hb label',col='green')
+qqnorm(data,main='normal q-q plot of hb level')
+qqline(data, col = "red") #jodi line diya jaito toba normal hoto

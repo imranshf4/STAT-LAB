@@ -1,0 +1,23 @@
+x.bar<-6.7
+mu<-5
+sd<-7.1
+n<-29
+
+z<-(x.bar-mu)/(sd/sqrt(n)) #1.28
+alpha=0.05
+ztab<-qnorm(alpha,lower.tail=FALSE) #1.64
+
+COMMENTS: H0 is accepted,z<stab
+
+#p-value
+pvalue<-pnorm(z,lower.tail=FALSE) #0.098
+since pvalue>alpha,then h0 is accepted
+
+h1:mu not equal 5
+ztab1<-qnorm(0.025) #-1.96
+ztab2<-qnorm(0.975) #1.96
+
+#p-value for one tailed test
+p.value<-2*pnorm(z,lower.tail=FALSE) #0.197
+# 95% confidence interval for mu
+ci<-c(x.bar+ztab1*sd/sqrt(n),x.bar+ztab2*sd/sqrt(n))

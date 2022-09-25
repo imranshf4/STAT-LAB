@@ -1,0 +1,35 @@
+#############---problem-2----##############
+Two dice rolled, S is the sum of
+both faces,s=sum of both faces>2
+
+s<-2:12
+s
+
+#vector of probabilities
+ps<-c(1:6,5:1)/36
+ps
+
+#expectation of s
+es<-sum(s*ps)
+es
+
+#variance of s
+vars<-sum((s-c(es))^2*ps) 
+vars #5.833333
+
+#esq = sum((s^2))*ps
+#esq
+#varss<-esq-es^2
+#varss
+
+#divide the plotting area into one row with two column
+par(mfrow=c(1,2))
+barplot(ps,ylim=c(0,0.2),xlab='S',ylab='Probability',col='steelblue',
+space=0,main='Sum of two dice rolls')
+
+#plot the distribution of D
+probability<-rep(1/6,6)
+names(probability)<-1:6
+
+barplot(probability,ylim=c(0,0.2),xlab="D",col='steelblue',
+space=0,main='Outcome of a single Dice roll')

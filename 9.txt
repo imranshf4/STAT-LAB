@@ -1,0 +1,21 @@
+#############--variance test--#############
+
+x1<-c(120, 115, 94, 118, 111, 102, 102, 131, 104, 107, 115, 139, 115, 113, 114, 105, 115, 134,
+109, 109, 93, 118, 109, 106, 125)
+
+sigma2=400
+mu=130
+df=length(x1)
+chisquare<-sum(x1-mu)^2/sigma2 #455.8225
+pvalue<-2*min(pchisq(chisquare,df),1-pchisq(chisquare,df)) #pvalue=0
+pvalue2<-1-pchisq(chisquare,df) #pvalue2=0
+pvalue3<-pchisq(chisquare,df)#pvalue3=1
+
+#############method-2#############
+x1<-c(70,85,92,90,95,79,80,85,90,85,95)
+sigma2=50
+s1<-var(x1)
+n<-length(x1)
+chi<-((n-1)*s1)/sigma2
+
+

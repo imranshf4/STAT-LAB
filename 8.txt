@@ -1,0 +1,24 @@
+Ho: There is no relation between booth-1 and booth-2.
+H1: There is relation between booth-1 and booth-2.
+
+booth_1<- c("positive","positive", "negative","positive", "negative", "negative",
+"positive","positive","positive", "negative", "positive")
+#booth_1<- c(1, 1, 0, 1,0, 0, 1, 1, 1, 0, 1)
+#table(booth_1)
+
+booth_2<- c("negative", "negative", "negative", "positive", "positive",
+"negative", "positive", "negative", "negative", "negative")
+#booth_2<- c(0, 0, 0, 1, 1, 0, 1, 0, 0, 0)
+#table(booth_2)
+
+x_table1<- table(booth_1)
+x_table1
+x_table2<- table(booth_2)
+x_table2
+
+m<- matrix(c(4, 7, 7, 3), ncol=2, byrow=TRUE, 
+dimnames=list(c("Booth-1", "Booth-2"), c("negative",
+"positive")))
+chisq.test(m)
+# Here p-value = 0.2696 > 0.05, so Ho is accepted.
+#i.e There is no relation between booth-1 and booth-2

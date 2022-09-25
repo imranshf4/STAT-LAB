@@ -1,0 +1,80 @@
+#Problem-1
+
+iq<-c(2,4,3,23,25,27,28,13,15,16,20,14,35,33,32,21,
+35,40,42,22,33,13,17,20,25,29,27,40,38,31)
+iq
+mean(iq) #population mean
+var(iq)
+length(iq)
+sigma = sd(iq) #sigma-square holo variance
+sigma
+median(iq)
+
+#check normality
+#interval estimation
+qnorm(0.025,0,1) #1.96(alpha/2,mean,var)
+
+set.seed(1246)
+x<-sample(iq,10,replace=TRUE)
+mean(x) #point estimate value of 21.6
+
+#lower interval (xbar-zalpha/2*sigma)/root(n)
+21.6-(1.96*sigma)/sqrt(10) #14.78
+
+#upper interval (xdash-zalpha/2*sigma)/root(n)
+21.6+(1.96*sigma)/sqrt(10) #28.41
+
+############--sampling distribution for mean---##########
+
+#Number of sample can be choosen
+choose(30,10)
+
+nsample<-rep(0,300000)
+for (i in 1:300000){
+   nsample[i]<-(mean(sample(iq,10,replace=TRUE)))
+}
+
+hist(nsample) #for distribution check
+mean1=mean(nsample) #24.09758
+Bias = mean(nsample)-mean(iq)
+
+############--sampling distribution for median---##########
+
+#Number of sample can be choosen
+choose(30,10)
+
+nsample2<-rep(0,300000)
+for (i in 1:300000){
+   nsample2[i]<-median(sample(iq,10,replace=TRUE))
+}
+
+hist(nsample2) #for distribution check
+median(nsample2)
+Bias2 = median(nsample2)-median(iq)
+Bias2
+
+############--efficiency check---##########
+#mean
+#efficiency check
+var(nsample) #11.69196
+var(nsample2) #19.93155
+
+l<-length(nsample)
+var<-sum((nsample-mean1)^2)/l
+
+V=(nsample-mean1)^2
+vari=sum(V)
+final<-vari/l
+
+#var jar kom seyta more efficient
+#median
+L2<-length(nsample2)
+var2<-sum((nsample2-median2)^2)/L2 #19.97823
+
+######----sample size determination for estimation----############
+z=1.96
+sigma=11
+n=(2*z*sigma/2)^2
+n
+
+#Comment: Sampling mean is an unbiased estimator of population mean.

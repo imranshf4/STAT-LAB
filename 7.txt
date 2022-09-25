@@ -1,0 +1,5 @@
+m<-matrix(c(55,16,23,32),ncol=2,byrow=TRUE)
+chisq.test(m)
+
+#p-value=0.000095,alpha=0.05
+alpha>p-value,so Ho is rejected

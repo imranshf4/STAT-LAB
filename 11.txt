@@ -1,0 +1,33 @@
+#############--Non parametric test--#############
+
+x<-c(120, 115, 94, 118, 111, 102, 102, 131, 104, 107, 115, 139, 115, 113, 114, 105, 115, 134,
+109, 109, 93, 118, 109, 106, 125)
+
+############SIGN TEST###########
+#H0: median=110
+
+md=110
+y<-sum(x>md)
+n<-sum(x!=md)
+
+p.value <-1-pbinom(y-1,n,0.5) #number of success,n,110 asar somvabona koto
+#p.value=0.345019
+alpha<p.value,so H0 is accepted
+and median=110 right aca
+############method-2###########
+alpha=0.05
+wilcox.test(x,mu=110,exact=FALSE,correct=TRUE,alternative="two.sided")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
